@@ -1,5 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
+  <script>
+  const passwordCorretta = "voipvoice2025";
+  const inserita = prompt("Inserisci la password per accedere al Generatore di Bozze:");
+
+  if (inserita !== passwordCorretta) {
+    document.documentElement.innerHTML = `
+      <head>
+        <title>Accesso negato</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+          }
+          .box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <h2>Accesso non autorizzato</h2>
+          <p>Password errata o annullata.</p>
+        </div>
+      </body>
+    `;
+  }
+</script>
+
 <head>
   <meta charset="UTF-8">
   <title>Generatore di bozze – Dashboard</title>
@@ -42,3 +79,4 @@
 
 </body>
 </html>
+
