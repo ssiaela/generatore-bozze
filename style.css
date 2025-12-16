@@ -1,0 +1,1520 @@
+/* === STILE GENERALE === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #f3f7ff, #e7f2ff);
+  color: #222;
+}
+
+a {
+  color: #0c5fab;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* ===============================
+   HEADER APP – HOME
+   =============================== */
+
+.app-header {
+  background: #ffffff;
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+}
+
+.app-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Parte sinistra: icona + testo */
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* “Logo” circolare dell’app (puoi sostituire l’emoji con un’icona o logo) */
+.app-header-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0D9ED9, #5BBE6A);
+  color: #ffffff;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(13, 158, 217, 0.35);
+}
+
+.app-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Riga sopra il titolo */
+.app-header-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
+
+/* Titolo principale nell’header */
+.app-header-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0D9ED9; /* Blu VoipVoice */
+}
+
+/* Parte destra: pill delle aree */
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-header-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #E5F4FB;
+  color: #0D9ED9;
+}
+
+/* Layout responsive */
+@media (max-width: 720px) {
+  .app-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-header-right {
+    flex-wrap: wrap;
+  }
+}
+
+main {
+  padding: 20px 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === HOME (index) === */
+
+/* Layout generale home a due colonne 50/50 */
+body.home {
+  min-height: 100vh;
+}
+
+.home-shell {
+  max-width: 1200px;
+  margin: 24px auto 40px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* metà sinistra / metà destra */
+  gap: 32px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .home-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* COLONNA SINISTRA: titolo + accessi */
+.home-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centro verticale */
+  align-items: flex-start;
+  text-align: left;
+}
+
+.home-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #E5F4FB;
+  color: #0D9ED9;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.home-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: #0D9ED9;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.home-subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* Card di accesso alle aree */
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.home-action-card {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #E2E8F0;
+  box-shadow: 0 3px 10px rgba(15,23,42,0.10);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease,
+              border-color 0.18s ease,
+              background-color 0.18s ease;
+}
+
+.home-action-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0D9ED9;
+  margin-bottom: 4px;
+}
+
+.home-action-text {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Hover: effetto pulsante gestionale */
+.home-action-card:hover {
+  background: #F1FAFE;
+  border-color: #0D9ED9;
+  box-shadow: 0 6px 18px rgba(13,158,217,0.22);
+  transform: translateY(-2px);
+}
+
+/* COLONNA DESTRA: immagine astratta + overlay programma */
+.home-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.35);
+  background-image:
+    linear-gradient(135deg, rgba(13,158,217,0.55), rgba(11,56,104,0.90)),
+    url("sfondobozze.png"); /* usa il tuo file */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay testo su immagine */
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.10) 0%,
+    rgba(0,0,0,0.55) 100%
+  );
+  color: #ffffff;
+}
+
+.home-program-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.55);
+}
+
+.home-program-meta {
+  font-size: 13px;
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.home-program-version {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.95;
+}
+
+/* Adattamenti mobile */
+@media (max-width: 900px) {
+  .home-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-actions {
+    align-items: stretch;
+  }
+
+  .home-hero-image {
+    min-height: 260px;
+    margin-top: 10px;
+  }
+
+  .home-hero-overlay {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* === LAYOUT GENERALE PAGINE GENERATORE === */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.page-header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0b3868;
+}
+
+.page-header a {
+  font-size: 13px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.card ✉️ {
+  margin-top: 0;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+/* === FORM & GENERATORE === */
+
+.field-group {
+  margin-bottom: 10px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  font-family: inherit;
+  background: #f9fafb;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.20);
+}
+
+textarea {
+  min-height: 220px;
+  white-space: pre-wrap;
+  resize: vertical;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+
+.hint {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* === CATEGORIE ERRORI === */
+
+.category {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.category-header {
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, #eff6ff, #f9fafb);
+}
+
+.category-title {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e0ecff;
+  color: #1d4ed8;
+  margin-left: 4px;
+}
+
+.category-body {
+  padding: 8px 10px 10px;
+  font-size: 12px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 11px;
+  cursor: pointer;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip input {
+  margin-right: 2px;
+}
+
+.chip:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.12);
+}
+
+.chevron {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+/* === BOTTONI === */
+
+button {
+  border-radius: 999px;
+  border: none;
+  padding: 7px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  box-shadow: 0 3px 10px rgba(37,99,235,0.40);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end; /* oppure center */
+  margin-top: 10px;
+}
+
+/* ===============================
+   STILE GENERALE PASTELLO MODERNO VOIPVOICE
+   =============================== */
+
+/* Sfondo con gradiente molto leggero e moderno */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #2A2E33;
+  background: linear-gradient(135deg, #F8FAFC 0%, #E9F5FB 50%, #FDF7FA 100%);
+}
+
+/* Card morbide */
+.card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(200, 215, 230, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bordino laterale con colori VoipVoice + pastello giovane */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 4px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(180deg, #0D9ED9, #A7C7E7);
+  opacity: 0.9;
+}
+
+/* Titoli card */
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0D9ED9; /* BLU VOIPVOICE */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card h3::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #fff, #0D9ED9);
+}
+
+/* Input morbidi */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #C8D7E6;
+  padding: 7px 9px;
+  font-size: 13px;
+  background: #F8FAFC;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #0D9ED9;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 2px rgba(13, 158, 217, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Pulsanti pastello moderni */
+.btn-primary,
+.btn-secondary {
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  padding: 7px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+/* Primario BLU VOIPVOICE */
+.btn-primary {
+  background: #0D9ED9;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(13, 158, 217, 0.35);
+}
+.btn-primary:hover {
+  background: #0B8BC0;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(13, 158, 217, 0.45);
+}
+
+/* Secondario VERDE VOIPVOICE */
+.btn-secondary {
+  background: #5BBE6A;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(91, 190, 106, 0.35);
+}
+.btn-secondary:hover {
+  background: #4EAC5C;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(91, 190, 106, 0.45);
+}
+
+/* Chip pastello con accenti giovani */
+.chip,
+.error-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #C8D7E6;
+  font-size: 11px;
+  background: #F4F9FF; /* tenue azzurro pastellato */
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.chip:hover,
+.error-chip:hover {
+  background: #A7C7E7; /* AZZURRO POLVERE MEDIO */
+  border-color: #0D9ED9;
+  transform: translateY(-1px);
+}
+
+/* Chip selezionato */
+.chip.selected,
+.error-chip.selected {
+  background: #F4B9C5; /* PASTELLO ROSA PESCA */
+  border-color: #0D9ED9;
+}
+
+/* Radio group giovani */
+.radio-group label {
+  background: #F4F7FF;
+  border-radius: 999px;
+  padding: 4px 10px;
+  transition: 0.15s ease;
+}
+
+.radio-group label:hover {
+  background: #A7C7E7;
+  transform: translateY(-1px);
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #0D9ED9;
+}
+
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.badge-formale { background:#e0e7ff; color:#3730a3; }
+.badge-collaborativo { background:#dcfce7; color:#166534; }
+.badge-diretto { background:#fee2e2; color:#b91c1c; }
+
+.tooltip {
+  position: relative;
+  cursor: help;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.tooltip:hover::after {
+  content: attr(data-msg);
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: #111827;
+  color: #f9fafb;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  min-width: 180px;
+  max-width: 260px;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Riepilogo errori selezionati */
+.error-summary {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.error-summary h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.error-summary ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* Timeline flusso */
+.workflow-box {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 18px;
+  border-left: 4px solid #0369a1;
+}
+
+.workflow-box h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0c4a6e;
+}
+
+.workflow-box ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+}
+
+.workflow-box li span {
+  width: 20px;
+  display: inline-block;
+}
+
+/* Box qualità bozza */
+.quality-box {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border-left: 4px solid #10b981;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.quality-box .ok { color:#16a34a; }
+.quality-box .warn { color:#d97706; }
+
+/* Anteprima tipo client di posta */
+.mail-preview {
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  margin-top:12px;
+}
+
+.mail-header {
+  background:#f1f5f9;
+  padding:8px 12px;
+  border-bottom:1px solid #e5e7eb;
+  font-size:12px;
+}
+
+.mail-body {
+  padding:10px 12px;
+  font-size:12px;
+  white-space:pre-wrap;
+}
+
+/* Tools in alto pagina */
+.page-tools {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+/* Modal help */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 999;
+}
+
+.modal-content {
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  width:380px;
+  max-width: 90vw;
+  box-shadow:0 4px 14px rgba(0,0,0,0.2);
+  font-size: 13px;
+}
+
+/* ===============================
+   TITOLO PAGINA – GIOVANE & MODERNO
+   =============================== */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+
+.page-header-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 650;
+  color: #0D9ED9; /* Blu VoipVoice */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+.page-title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0D9ED9, #A7C7E7);
+  color: #ffffff;
+  font-size: 15px;
+  box-shadow: 0 6px 16px rgba(13, 158, 217, 0.35);
+}
+
+/* Badge “Presales / Provisioning” */
+.page-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #E5F4FB;
+  color: #0D9ED9;
+}
+
+/* Badge laterale “Customer Care” */
+.page-header-side {
+  display: flex;
+  align-items: center;
+}
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #5BBE6A;       /* Verde VoipVoice */
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(91, 190, 106, 0.35);
+}
+
+@media (max-width: 700px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Etichette e titoli in maiuscolo, più leggibili */
+.card h3,
+.field-group label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===============================
+   BOTTONE "TORNA ALLA HOME"
+   =============================== */
+
+.back-home-btn {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #0D9ED9; /* Blu VoipVoice */
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(13, 158, 217, 0.35);
+}
+
+.back-home-btn:hover {
+  background: #0B8BC0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 158, 217, 0.45);
+}
+
+/* Riduce lo spazio vuoto in alto nelle pagine senza header */
+body.presales main,
+body.provisioning main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ===============================
+   OTTIMIZZAZIONE HOME TIPO CRM
+   (sovrascrive alcuni stili esistenti)
+   =============================== */
+
+/* Home più "gestionale" rispetto al gradient delle altre pagine */
+body.home {
+  min-height: 100vh;
+  background: #f3f6fb;
+}
+
+/* Layout più da dashboard: sinistra contenuti, destra riepilogo */
+.home-shell {
+  max-width: 1200px;
+  margin: 48px auto 40px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .home-shell {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+}
+
+/* Colonna sinistra centrata ma non pesante */
+.home-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #E5F4FB;
+  color: #0D9ED9;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 4px 0;
+}
+
+.home-subtitle {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Bottoni di scelta tipo "moduli CRM" */
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+  max-width: none;
+}
+
+.home-action-card {
+  display: block;
+  flex: 1 1 220px;
+  max-width: 260px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease,
+              border-color 0.18s ease,
+              background-color 0.18s ease;
+}
+
+.home-action-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.home-action-text {
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.home-action-card:hover {
+  background: #F1FAFE;
+  border-color: #0D9ED9;
+  box-shadow: 0 6px 18px rgba(13,158,217,0.18);
+  transform: translateY(-2px);
+}
+
+/* Colonna destra: riquadro riepilogo tipo “info account CRM” */
+.home-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.home-right .card {
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 14px rgba(15,23,42,0.10);
+}
+
+/* Testi riepilogo programma */
+.home-program-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.home-program-meta {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 2px;
+}
+
+.home-program-version {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+/* =======================================
+   HOME – STILE DASHBOARD CRM MODERNA
+   ======================================= */
+
+body.home {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top left, #22d3ee 0, transparent 55%),
+    radial-gradient(circle at bottom right, #4f46e5 0, transparent 55%),
+    #020617;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Contenitore principale */
+.home-shell {
+  width: 100%;
+  max-width: 1040px;
+}
+
+/* Card centrale in stile glassmorphism */
+.home-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 20px 22px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.75),
+    0 0 0 1px rgba(15, 23, 42, 0.6);
+  color: #e5e7eb;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Riquadro glow in alto a destra, puramente decorativo */
+.home-card::after {
+  content: "";
+  position: absolute;
+  right: 40px;
+  top: -40px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22), transparent 65%);
+  pointer-events: none;
+}
+
+/* Header con logo e titoli */
+.home-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.home-logo img {
+  height: 40px;
+  max-width: 160px;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.home-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: #93c5fd;
+}
+
+.home-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+.home-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.home-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* Moduli Presales / Provisioning: bottoni “pill” */
+.home-modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.module-pill {
+  position: relative;
+  flex: 1 1 200px;
+  max-width: 260px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  text-decoration: none;
+  color: #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+}
+
+.module-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.module-pill:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.45);
+}
+
+.module-pill:hover::after {
+  opacity: 1;
+}
+
+.module-pill-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.module-pill-desc {
+  font-size: 11px;
+  color: #cbd5f5;
+}
+
+/* Secondo modulo con leggera variazione di gradiente */
+.module-pill-alt {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.95));
+}
+
+/* Footer compatto con pillole info */
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.home-footer-pill {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(148, 163, 184, 0.7);
+  color: #9ca3af;
+}
+
+/* Adattamento mobile */
+@media (max-width: 720px) {
+  body.home {
+    padding: 16px;
+  }
+
+  .home-card {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-logo img {
+    height: 34px;
+  }
+
+  .home-title {
+    font-size: 22px;
+  }
+
+  .home-modules {
+    flex-direction: column;
+  }
+
+  .module-pill {
+    max-width: none;
+  }
+
+  .home-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =======================================
+   HOME – DASHBOARD CHIARA E COERENTE
+   ======================================= */
+
+body.home {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f3f7ff, #e7f2ff); /* stesso mood delle altre pagine */
+}
+
+/* Contenitore centrale */
+.home-wrapper {
+  width: 100%;
+  max-width: 980px;
+}
+
+.home-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 40px 32px; /* più spazio interno */
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
+  border: 1px solid #d3deee;
+}
+
+
+/* Header con logo e titolo */
+.home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.home-logo {
+  height: 34px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.home-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #6b7280;
+}
+
+.home-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0b315f;
+}
+
+.home-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Pulsanti modulo – stile “pill” chiaro */
+.home-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 18px;
+}
+
+.home-tile {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: 999px;
+  background: #f5f7fb;
+  border: 1px solid #d1e3f5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+.home-tile-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0c5fab;
+}
+
+.home-tile-caption {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.home-tile:hover {
+  background: #e5f3ff;
+  border-color: #0d9ed9;
+  box-shadow: 0 6px 16px rgba(13, 158, 217, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Footer compatto */
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: #6b7280;
+  border-top: 1px solid #edf1f7;
+  padding-top: 10px;
+}
+
+/* Adattamento mobile */
+@media (max-width: 640px) {
+  body.home {
+    padding: 16px;
+  }
+
+  .home-panel {
+    padding: 18px 16px 14px;
+    border-radius: 14px;
+  }
+
+  .home-header {
+    align-items: flex-start;
+  }
+
+  .home-title {
+    font-size: 22px;
+  }
+
+  .home-actions-row {
+    flex-direction: column;
+  }
+
+  .home-tile {
+    border-radius: 14px;
+  }
+}
+
+body.home {
+  background:
+    linear-gradient(135deg, #f7faff 0%, #edf4ff 100%),
+    linear-gradient(225deg, #f1f7ff 0%, rgba(255,255,255,0) 70%);
+  background-blend-mode: overlay;
+}

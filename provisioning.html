@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Sezione Provisioning – Generatore di bozze</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="provisioning">
+
+<a href="index.html" class="back-home-btn">← Home⚙️</a>
+
+<main>
+<div class="page-header">
+  <div class="page-header-main">
+    <span class="page-tag">Provisioning</span>
+    <h2 class="page-title">
+      <span class="page-title-icon">📄</span>
+      Generatore bozze
+    </h2>
+  </div>
+  <div class="page-header-side">
+    <span class="page-badge">Customer Care</span>
+  </div>
+</div>
+
+
+  <div class="subtitle">
+    Casistiche di errore disponibili.
+  </div>
+
+<div class="grid">
+  <!-- COLONNA SINISTRA: CONFIGURAZIONE + ERRORI -->
+  <section class="card">
+    <h3>Impostazioni bozza – Provisioning</h3>
+
+    <div class="field-group">
+      <label>Destinatario</label>
+      <div class="radio-group">
+        <label><input type="radio" name="prov_destinatario" value="partner" checked> Partner</label>
+        <label><input type="radio" name="prov_destinatario" value="cliente"> Cliente</label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Forma di cortesia</label>
+      <div class="radio-group">
+        <label><input type="radio" name="prov_forma" value="lei" checked> Dare del “Lei”</label>
+        <label><input type="radio" name="prov_forma" value="tu"> Dare del “tu”</label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>Tono del messaggio</label>
+      <div class="radio-group">
+        <label><input type="radio" name="prov_tono" value="formale" checked> Formale</label>
+        <label><input type="radio" name="prov_tono" value="collaborativo"> Collaborativo</label>
+        <label><input type="radio" name="prov_tono" value="diretto"> Più diretto</label>
+
+
+    <div class="field-group">
+      <label>Dati opzionali (usati solo se compilati)</label>
+      <input type="text" id="prov_nomeCliente" placeholder="Nome / Ragione sociale cliente">
+      <input type="text" id="prov_rifPratica" placeholder="Riferimento pratica / numero contratto" style="margin-top:4px;">
+    </div>
+
+    <hr style="margin:10px 0; border:none; border-top:1px solid #eee;">
+
+    <div class="field-group">
+      <label>Ricerca rapida errori</label>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <input type="text" id="prov_search" placeholder="Digita una parola chiave (es. IBAN, subentro, voltura…)">
+        <button type="button" class="btn-secondary" id="prov_search_btn">Cerca</button>
+      </div>
+      <div class="hint">
+        Filtro rapido.
+      </div>
+    </div>
+
+    <h3>Selezione errori – Provisioning</h3>
+    <div id="prov_errors_container" class="field-group"></div>
+
+    <div class="buttons-row">
+      <button class="btn-secondary" type="button" onclick="clearSelection('prov')">Deseleziona tutto</button>
+    </div>
+    <div class="hint">
+      Categorie espandibili.
+    </div>
+  </section>
+
+  <!-- COLONNA DESTRA: BOZZE GENERICHE + OGGETTO + CORPO -->
+  <section class="card">
+    <h3>Bozza mail – Provisioning</h3>
+
+    <!-- MENÙ A TENDINA BOZZE GENERICHE -->
+    <div class="field-group">
+      <label>Bozze generiche</label>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <select id="prov_quick_template">
+          <option value="">— Seleziona una bozza —</option>
+          <option value="subentro_partner_lei">Subentro – richiesta documentazione (Partner, Lei)</option>
+          <option value="subentro_cliente_lei">Subentro – richiesta documentazione (Cliente, Lei)</option>
+          <!-- aggiungi qui altre bozze, con value uguale alle chiavi di QUICK_TEMPLATES -->
+        </select>
+        <button type="button" class="btn-secondary" onclick="applicaBozzaRapida('prov')">
+          Applica bozza
+        </button>
+      </div>
+      <div class="hint">
+        Compilazione automatica modificabile.
+      </div>
+    </div>
+
+    <!-- OGGETTO -->
+    <div class="field-group">
+      <label for="prov_oggetto">Oggetto</label>
+      <input type="text" id="prov_oggetto">
+    </div>
+
+    <!-- CORPO -->
+    <div class="field-group">
+      <label for="prov_corpo">Corpo della mail</label>
+      <textarea id="prov_corpo"></textarea>
+    </div>
+
+    <!-- PULSANTI -->
+    <div class="buttons-row">
+      <button class="btn-primary" type="button" onclick="generaBozza('prov')">Genera bozza</button>
+      <button class="btn-secondary" type="button" onclick="copiaTesto('prov')">Copia testo</button>
+    </div>
+    <div class="hint">
+      Personalizza e invia.
+    </div>
+  </section>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
