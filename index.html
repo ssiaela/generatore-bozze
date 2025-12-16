@@ -1,39 +1,148 @@
 <!DOCTYPE html>
 <html lang="it">
-  <script>
+<script>
   const passwordCorretta = "voipvoice2025";
-  const inserita = prompt("Inserisci la password per accedere al Generatore di Bozze:");
 
-  if (inserita !== passwordCorretta) {
-    document.documentElement.innerHTML = `
-      <head>
-        <title>Accesso negato</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-          }
-          .box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="box">
-          <h2>Accesso non autorizzato</h2>
-          <p>Password errata o annullata.</p>
+  function renderLogin() {
+    document.body.innerHTML = `
+      <div class="vv-login-wrap">
+        <div class="vv-login-card">
+          <div class="vv-login-icon" aria-hidden="true">🔒</div>
+          <h1 class="vv-login-title">Accesso riservato</h1>
+          <p class="vv-login-subtitle">Inserisci la password per aprire il Generatore di Bozze.</p>
+
+          <label class="vv-login-label" for="vvPass">Password</label>
+          <input id="vvPass" class="vv-login-input" type="password" placeholder="••••••••••" autocomplete="current-password" />
+
+          <button id="vvBtn" class="vv-login-btn" type="button">Accedi</button>
+          <p id="vvErr" class="vv-login-error" role="alert" aria-live="polite"></p>
+
+          <div class="vv-login-footer">VoipVoice • Customer Care</div>
         </div>
-      </body>
+      </div>
     `;
+
+    const style = document.createElement("style");
+    style.textContent = `
+      .vv-login-wrap{
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background: linear-gradient(135deg, #f4f6f8, #eef2f6);
+        padding: 24px;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+      .vv-login-card{
+        width: 100%;
+        max-width: 420px;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.08);
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        padding: 28px;
+      }
+      .vv-login-icon{
+        width: 44px;
+        height: 44px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius: 12px;
+        background: #f2f5f8;
+        margin-bottom: 12px;
+        font-size: 20px;
+      }
+      .vv-login-title{
+        margin: 0 0 6px 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .vv-login-subtitle{
+        margin: 0 0 18px 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #475569;
+      }
+      .vv-login-label{
+        display:block;
+        font-size: 13px;
+        font-weight: 600;
+        color:#0f172a;
+        margin-bottom: 6px;
+      }
+      .vv-login-input{
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 10px;
+        padding: 12px 12px;
+        font-size: 14px;
+        outline: none;
+      }
+      .vv-login-input:focus{
+        border-color: rgba(15, 23, 42, 0.45);
+        box-shadow: 0 0 0 4px rgba(15,23,42,0.08);
+      }
+      .vv-login-btn{
+        width:100%;
+        margin-top: 12px;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        background: #0f172a;
+        color: #fff;
+      }
+      .vv-login-btn:hover{ opacity: 0.92; }
+      .vv-login-error{
+        margin: 10px 0 0 0;
+        min-height: 18px;
+        font-size: 13px;
+        color: #b91c1c;
+      }
+      .vv-login-footer{
+        margin-top: 18px;
+        font-size: 12px;
+        color: #64748b;
+        text-align:center;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const passEl = document.getElementById("vvPass");
+    const btnEl = document.getElementById("vvBtn");
+    const errEl = document.getElementById("vvErr");
+
+    const tryLogin = () => {
+      const inserita = (passEl.value || "").trim();
+      if (inserita === passwordCorretta) {
+        // Ricarico la pagina per far partire normalmente il generatore
+        sessionStorage.setItem("vv_auth", "ok");
+        location.reload();
+      } else {
+        errEl.textContent = "Password non corretta. Riprova.";
+        passEl.focus();
+        passEl.select();
+      }
+    };
+
+    btnEl.addEventListener("click", tryLogin);
+    passEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") tryLogin();
+    });
+
+    setTimeout(() => passEl.focus(), 50);
+  }
+
+  // Se già autenticato in questa sessione, non mostrare la schermata login
+  if (sessionStorage.getItem("vv_auth") !== "ok") {
+    window.addEventListener("DOMContentLoaded", () => {
+      renderLogin();
+    });
   }
 </script>
 
@@ -79,4 +188,5 @@
 
 </body>
 </html>
+
 
